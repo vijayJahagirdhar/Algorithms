@@ -1,0 +1,10 @@
+package greedyAlgos.ex;
+
+public class primsMST {
+
+	public static int[][]  Adj;
+	public static void main(String[] args) {
+       Adj = new int[][] {{0,0,0},{0,0,0}};
+	}
+
+}

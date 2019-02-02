@@ -1,0 +1,15 @@
+package greedyAlgos.ex;
+
+public class primsMST {
+	public static int[][]  Adj;
+	public static boolean[] visited;
+	public static int V = 7;
+	public static void main(String[] args) {
+	   visited = new boolean[] {false,false,false,false,false,false,false}; 
+       Adj = new int[][] {{},{}};
+       prims();
+	}
+	public static void prims() {
+	}
+
+}

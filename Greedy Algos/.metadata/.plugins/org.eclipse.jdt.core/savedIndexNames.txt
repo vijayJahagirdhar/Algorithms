@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+E:\Spring_Boot\Algorithms\Greedy Algos\.metadata\.plugins\org.eclipse.jdt.core
+3864861720.index
+3109066350.index
+1619330270.index
+1715739715.index
+170696292.index
+348042704.index
+2528342001.index
+4247931815.index
+3471763399.index
+736428193.index
+2845692416.index
+2582331083.index
+3587893277.index
+1260239322.index
+1544425188.index
+3559171663.index
+2050773473.index
+3771885033.index
+1117518705.index

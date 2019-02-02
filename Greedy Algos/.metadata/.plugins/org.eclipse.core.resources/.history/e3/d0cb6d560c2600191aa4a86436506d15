@@ -1,0 +1,21 @@
+package greedyAlgos.ex;
+
+public class primsMST {
+	public static int[][]  Adj;
+	public static boolean[] visited;
+	public static int V = 7;
+	public static void main(String[] args) {
+	   visited = new boolean[] {false,false,false,false,false,false,false}; 
+       Adj = new int[][] {{0,28,0,0,0,10,0},
+    	                  {28,16,0,0,0,0,14},
+    	                  {0,16,0,12,0,0,0},
+    	                  {0,0,12,0,22,0,18},
+    	                  {0,0,0,22,0,25,24},
+    	                  {10,0,0,0,25,0,0},
+    	                  {0,14,0,18,24,0,0}};
+    	                  prims();
+       }
+	public static void prims() {
+	}
+
+}

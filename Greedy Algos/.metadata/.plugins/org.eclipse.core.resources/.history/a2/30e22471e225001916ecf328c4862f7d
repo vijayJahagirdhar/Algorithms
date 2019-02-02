@@ -1,0 +1,105 @@
+package greedyAlgos.ex;
+public class HuffmanCodes {
+    private static int[] A;
+    private static int heapSize;
+    public static void main(String[] args) {
+           /*System.out.println("Before building heap");*/
+           A = new int[] {45,13,12,16,9,5}; 
+           heapSize=A.length;
+           print();
+           buildMinHeap();
+           System.out.println("Result : ");
+           print();
+           int ans = huffman_codes();
+           System.out.println("result of hufman code : ");
+           System.out.println("Ans : "+ans);
+           
+
+    }
+    public static int huffman_codes() {
+        int ans = 0;
+           for(int i=0;i<A.length-1;i++) {
+                  int left  = extractMin();
+                  int right = extractMin();
+         int root  =   left + right;
+         ans=root;
+         insertMinHeap(root);
+                  print();
+                  }
+           return ans;
+    }
+    public static void insertMinHeap(int key) {
+    /*  A[heapSize]=key;
+       int temp=A[0];
+       A[0]=A[heapSize];
+       A[heapSize]=temp;
+       heapSize++;
+       minHeapify(0);*/
+           
+           A[heapSize] = key;
+           heapSize=heapSize+1;
+           int i= heapSize;
+           System.out.println();
+           while(Math.floor(i/2)-1>=0) {
+                  i = (int) (Math.floor(i/2)-1);
+                  minHeapify(i);
+           }
+    }
+    private static int extractMin() {
+     int min = A[0];
+     A[0] = A[heapSize-1];
+     heapSize=heapSize-1;
+     minHeapify(0);
+     return min;    
+    }
+    
+/*     public static void insert(int key) {
+           int[] A = 
+    }*/
+    
+    
+    public static void buildMinHeap() {
+           
+           System.out.println();
+           int n= (int) (Math.floor((heapSize)/2)-1);
+           for(int i=n;i>=0;i--) {
+                  /*System.out.print("MinHeapify["+i+"] ---> ");*/
+                  minHeapify(i);
+           }      
+    }
+    
+    public static void minHeapify(int i) {
+           int left  = i*2+1;
+           int right = i*2+2;
+           int minimum = i;
+           System.out.print("  minHeapify["+i+"] -- > { (l :"+left+" | r :"+right+" |root:"+i+" )  ");
+           System.out.print("root : "+A[i]);
+           if(left <= (heapSize-1) && A[left] < A[i]) {
+                  minimum = left;
+                  System.out.print(" | left : "+A[left]);
+           }
+        if(right <= (heapSize-1) && A[right] < A[minimum]) {
+                  minimum = right;
+                  System.out.print(" | right: "+A[right]);
+           }
+           System.out.print("| minimum : "+minimum+" ");
+           if(minimum != i) {
+                  //swap A[i] with A[minimum]
+                  int temp = A[minimum];
+                  A[minimum] = A[i];
+                  A[i] = temp;
+                  System.out.print("  |  ");
+                  print();
+    /*            System.out.print("  }");*/
+                  minHeapify(minimum);
+           }
+    /*     System.out.print("  }");*/
+           System.out.println();
+    }
+    
+    public static void print() {
+           for(int i=0;i<heapSize;i++)
+                  System.out.print(A[i]+" ");
+    }
+
+}
