@@ -1,0 +1,14 @@
+package greedyAlgos.ex;
+
+class PrimWithoutHeap{
+	    
+	    public static int[][] graph;
+		public static void main(String[] args) {
+			prims();
+		}
+
+		private static void prims() {
+			// TODO Auto-generated method stub
+			
+		}
+}

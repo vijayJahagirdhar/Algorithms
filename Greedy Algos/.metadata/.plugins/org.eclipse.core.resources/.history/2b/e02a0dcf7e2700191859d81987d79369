@@ -1,0 +1,51 @@
+package greedyAlgos.ex;
+
+class PrimWithoutHeap{
+	    
+	    public static int[][] graph;
+	    private static int V = 5;
+		public static void main(String[] args) {
+            graph = new int[][] {{0,2,0,6,0},
+            	                 {2,0,3,8,5},
+            	                 {0,3,0,0,7},
+            	                 {6,8,0,0,9},
+            	                 {0,5,7,9,0}};
+			prims();
+		}
+
+		public static void prims() {
+		   int parent[] = new int[V];
+		   int key[]    = new int[V];
+		   boolean[] mstSet= new boolean[V];
+		   for(int i=0;i<V;i++) {
+			   key[i] = Integer.MAX_VALUE;
+			   mstSet[i]=false;
+		   }
+		   parent[0] = -1;
+		   key[0] = 0;
+		   for(int j=0;j<V-1;j++) {
+		      int u = minValue(key,mstSet);
+		      mstSet[u] = true;
+		      for(int i=0;i<V;i++) {
+		               if(graph[u][i] !=0 &&
+		            	     graph[u][i] < key[i] &&
+		            				 mstSet[i] == false ) {
+		            	   parent[i] = u;
+		            	   key[i] = graph[u][i];
+		               }
+		    	  }
+		      }
+		}
+
+		private static int minValue(int[] key, boolean[] mstSet) {
+			int min= Integer.MAX_VALUE;
+			int minPos = -1;
+			for(int i=0;i<V;i++) {
+				if(mstSet[i]==false && key[i] < min) {
+					min = key[i];
+					minPos = i;
+				}	
+			}
+			return minPos;
+		}
+}
